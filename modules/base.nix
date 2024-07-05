@@ -40,7 +40,7 @@
   ];
 
   users.users.${myvars.username} = {
-    description = myvars.userfullname;
+    description = myvars.name;
 
     openssh.authorizedKeys.keys = [];
   };

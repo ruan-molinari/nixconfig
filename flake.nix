@@ -18,6 +18,36 @@
     home-manager,
     ...
     } @inputs: let 
+      inherit (inputs.nixpkgs) lib;
+      mylib = import ../lib { inherit lib; };
+      myvars = import ../vars { inherit lib; };
+
+      # Add my custom lib, vars, nixpkgs instance, and all the inputs to specialArgs,
+      # so that I can use them in all my nixos/home-manager/darwin modules.
+      genSpecialArgs = system:
+        inputs
+        // {
+          inherit mylib myvars;
+
+          # use unstable branch for some packages to get the latest updates
+          pkgs-unstable = import inputs.nixpkgs-unstable {
+            inherit system; # refer the `system` parameter form outer scope recursively
+            config.allowUnfree = true;
+          };
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
       systemSettings = {
         system = "x86_64-linux";
         hostname = "nixos";
@@ -32,6 +62,7 @@
         email = "ruan.molinari@proton.me";
         editor = "nvim";
       };
+
 
       lib = nixpkgs.lib;
       system = systemSettings.system;
