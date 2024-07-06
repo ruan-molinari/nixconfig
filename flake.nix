@@ -64,7 +64,6 @@
       };
 
 
-      lib = nixpkgs.lib;
       system = systemSettings.system;
       pkgs = import nixpkgs {
         inherit system;

@@ -8,7 +8,6 @@
 }: {
   imports = [
     ./audio.nix
-    ./locale.nix
     ./nix.nix
   ];
 

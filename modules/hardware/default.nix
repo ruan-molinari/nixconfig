@@ -10,8 +10,6 @@
 
   services = {
     xremap = {
-      withX11 = true;
-      withWayland = true;
       #withGnome = true;
       userName = "ruan";
 
