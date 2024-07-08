@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     # Misc
     tldr
+    htop # system monitoring TUI program
     gnupg
     gnumake
 
@@ -20,6 +21,7 @@
     bat
 
     just # like make but simpler
+
   ];
 
   programs = {
