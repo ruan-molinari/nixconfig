@@ -1,3 +1,3 @@
 {mylib, ...}: {
-  imports = mylib.scanPath ./.;
+  imports = mylib.scanPaths ./.;
 }

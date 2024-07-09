@@ -19,8 +19,8 @@
     ...
     } @inputs: let 
       inherit (inputs.nixpkgs) lib;
-      mylib = import ../lib { inherit lib; };
-      myvars = import ../vars { inherit lib; };
+      mylib = import ./lib { inherit lib; };
+      myvars = import ./vars { inherit lib; };
 
       # Add my custom lib, vars, nixpkgs instance, and all the inputs to specialArgs,
       # so that I can use them in all my nixos/home-manager/darwin modules.
@@ -35,18 +35,6 @@
             config.allowUnfree = true;
           };
         };
-
-
-
-
-
-
-
-
-
-
-
-
 
       systemSettings = {
         system = "x86_64-linux";
@@ -93,9 +81,12 @@
             inherit inputs;
             inherit systemSettings;
             inherit userSettings;
+            inherit mylib;
+            inherit myvars;
           };
           modules = [
             ./users/ruan/home.nix
+            ./home/linux/core.nix
           ];
         };
       };

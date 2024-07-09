@@ -12,7 +12,7 @@
 
     lfs.enable = true;
 
-    extraConfigs = {
+    extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = true;
 
