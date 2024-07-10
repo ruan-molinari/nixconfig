@@ -1,5 +1,5 @@
 { lib, ... }: {
-  retaliveToRoot = lib.path.append ../.;
+  relativeToRoot = lib.path.append ../.;
   scanPaths = path:
     builtins.map
     (f: (path + "/${f}"))

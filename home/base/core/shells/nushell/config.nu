@@ -6,8 +6,6 @@ let carapace_completer = {|spans|
 alias nix-shell = nix-shell --command nu
 
 $env.config = {
-  show_banner: false
-
   ls: {
     use_ls_colors: true
   }
@@ -67,7 +65,7 @@ $env.config = {
   float_precision: 2
   use_ansi_coloring: true
   edit_mode: vi
-  show_banner: true
+  show_banner: false
   render_right_prompt_on_last_line: false
   shell_integration: {
     # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title

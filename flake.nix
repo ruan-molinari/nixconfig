@@ -11,21 +11,23 @@
 
     xremap-flake.url = "github:xremap/nix-flake"; # hardware input remapping
 
-      nix-gaming.url = "github:fufexan/nix-gaming"; # gaming related stuff
+    nix-gaming.url = "github:fufexan/nix-gaming"; # gaming related stuff
   };
 
-  outputs = {...} @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @inputs:
   let 
-    lib = inputs.nixpkgs.lib;
+    lib = nixpkgs.lib;
+    pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
 
     myLib = import ./lib { inherit lib; };
     myVars = import ./vars { inherit lib; };
 
-    args = {inherit inputs lib myLib myVars;};
+    args = {inherit inputs myLib myVars;};
 
   in {
     nixosConfigurations = {
       default = lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = args;
 
         modules = [
@@ -36,8 +38,8 @@
     };
 
     homeConfigurations = {
-      ruan = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = inputs.nixpkgs;
+      ruan = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
         extraSpecialArgs = args;
         modules = [
           ./home/linux/core.nix

@@ -2,10 +2,8 @@
   imports = [
     ./cli
     ./core
-    ./hardware
+#    ./hardware
     ./video
 
-    # TODO: remove this import when major refactoring is done
-    ./nixos
   ];
 }
