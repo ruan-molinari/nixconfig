@@ -3,20 +3,20 @@ let carapace_completer = {|spans|
 }
 
 # TODO: see if there is a way to do this in nix instead
-alias = nix-shell = nix-shell --command nu
+alias nix-shell = nix-shell --command nu
 
 $env.config = {
+  show_banner: false
+
   ls: {
     use_ls_colors: true
   }
   rm: {
-    always_thrash: false
+    always_trash: false
   }
-  cd: {
-    abbreviations: true # allows `cd s/o/f` to expand to `cd some/other/folder`
-  }
+
   table: {
-    mode: with_love # "basic", "compact", "compact_double", "light", "thin", "with_love", "rounded", "reinforced", "heavy", "none", "other"
+    mode: basic # "basic", "compact", "compact_double", "light", "thin", "with_love", "rounded", "reinforced", "heavy", "none", "other"
     index_mode: auto # "always", "never", "auto" (shews indexes when table has indexes)
     trim: {
       methodology: wrapping # "wrapping" or "truncating"
