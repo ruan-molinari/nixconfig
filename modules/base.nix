@@ -5,7 +5,7 @@
 } @ args: {
 
   # Auto upgrade nix
-  nix.package = pkgs.nixVersion.latest;
+  nix.package = pkgs.nixVersions.latest;
 
   environment.systemPackages = with pkgs; [
     git
