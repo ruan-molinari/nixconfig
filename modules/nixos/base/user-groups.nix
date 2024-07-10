@@ -1,23 +1,23 @@
 {
-  myvars,
+  myVars,
   config,
   ...
 }: {
   # Don't allow mutation of users outside the config.
-  users.mutableUsers = false;
+  users.mutableUsers = true;
 
   users.groups = {
-    "${myvars.username}" = {};
+    "${myVars.username}" = {};
     docker = {};
     wireshark = {};
   };
 
-  users.users.${myvars.username} = {
+  users.users.${myVars.username} = {
 
-    home = "/home/${myvars.username}";
+    home = "/home/${myVars.username}";
     isNormalUser = true;
     extraGroups = [
-      myvars.username
+      myVars.username
       "users"
       "networkmanager"
       "wheel"

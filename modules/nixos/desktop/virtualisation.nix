@@ -1,6 +1,6 @@
 {
   pkgs,
-  userSettings,
+  myVars,
   ...
 }: {
   virtualisation = {
@@ -44,7 +44,7 @@
   programs.dconf = {
     enable = true;
 
-    profiles.${userSettings.username}.databases = [
+    profiles.${myVars.username}.databases = [
       {
         settings = {
           "org/virt-manager/virt-manager/connections" = {

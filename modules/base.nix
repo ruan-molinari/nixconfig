@@ -1,6 +1,6 @@
 {
   pkgs,
-  myvars,
+  myVars,
   ...
 } @ args: {
 
@@ -39,16 +39,16 @@
     rsync
   ];
 
-  users.users.${myvars.username} = {
-    description = myvars.name;
+  users.users.${myVars.username} = {
+    description = myVars.name;
 
-    openssh.authorizedKeys.keys = [];
+    #openssh.authorizedKeys.keys = [];
   };
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
 
-    trusted-users = [myvars.username];
+    trusted-users = [myVars.username];
 
   };
 }

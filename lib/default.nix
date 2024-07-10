@@ -1,5 +1,4 @@
-{ lib, ... }: 
-{
+{ lib, ... }: {
   retaliveToRoot = lib.path.append ../.;
   scanPaths = path:
     builtins.map

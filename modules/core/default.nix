@@ -2,8 +2,7 @@
   config,
   pkgs,
   inputs,
-  userSettings,
-  systemSettings,
+  myVars,
   ...
 }: {
   imports = [
@@ -14,7 +13,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = systemSettings.hostname;
+  networking.hostName = myVars.username;
 
   networking.networkmanager.enable = true;
 
@@ -26,18 +25,9 @@
   
   programs.nix-ld.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-
-  users.users.${userSettings.username} = {
+  users.users.${myVars.username} = {
     isNormalUser = true;
-    description = userSettings.name;
+    description = myVars.name;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       nerdfonts

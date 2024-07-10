@@ -1,5 +1,5 @@
-{pkgs, mylib, ...}: {
-  imports = mylib.scanPaths ./.;
+{pkgs, myLib, ...}: {
+  imports = myLib.scanPaths ./.;
 
   programs.bash = {
     enable = true;

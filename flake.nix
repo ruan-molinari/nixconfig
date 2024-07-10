@@ -9,86 +9,40 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    xremap-flake.url = "github:xremap/nix-flake";
+    xremap-flake.url = "github:xremap/nix-flake"; # hardware input remapping
+
+      nix-gaming.url = "github:fufexan/nix-gaming"; # gaming related stuff
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-    } @inputs: let 
-      inherit (inputs.nixpkgs) lib;
-      mylib = import ./lib { inherit lib; };
-      myvars = import ./vars { inherit lib; };
+  outputs = {...} @ inputs:
+  let 
+    lib = inputs.nixpkgs.lib;
 
-      # Add my custom lib, vars, nixpkgs instance, and all the inputs to specialArgs,
-      # so that I can use them in all my nixos/home-manager/darwin modules.
-      genSpecialArgs = system:
-        inputs
-        // {
-          inherit mylib myvars;
+    myLib = import ./lib { inherit lib; };
+    myVars = import ./vars { inherit lib; };
 
-          # use unstable branch for some packages to get the latest updates
-          pkgs-unstable = import inputs.nixpkgs-unstable {
-            inherit system; # refer the `system` parameter form outer scope recursively
-            config.allowUnfree = true;
-          };
-        };
+    args = {inherit inputs lib myLib myVars;};
 
-      systemSettings = {
-        system = "x86_64-linux";
-        hostname = "nixos";
-        timezone = "America/Sao_Paulo";
-        locale = "en_US.UTF-8";
+  in {
+    nixosConfigurations = {
+      default = lib.nixosSystem {
+        specialArgs = args;
+
+        modules = [
+          ./hosts/default
+        ];
       };
 
-      userSettings = {
-        username = "ruan";
-        githubUser = "ruan-molinari";
-        name = "Ruan";
-        email = "ruan.molinari@proton.me";
-        editor = "nvim";
-      };
+    };
 
-
-      system = systemSettings.system;
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-    in {
-      nixosConfigurations = {
-        default = lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit systemSettings;
-            inherit userSettings;
-          };
-          modules = [
-            ./hosts/default
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        ruan = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit systemSettings;
-            inherit userSettings;
-            inherit mylib;
-            inherit myvars;
-          };
-          modules = [
-            ./users/ruan/home.nix
-            ./home/linux/core.nix
-          ];
-        };
+    homeConfigurations = {
+      ruan = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = inputs.nixpkgs;
+        extraSpecialArgs = args;
+        modules = [
+          ./home/linux/core.nix
+        ];
       };
     };
+  };
 }

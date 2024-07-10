@@ -1,9 +1,9 @@
 {
   config,
-  myvars,
+  myVars,
   ...
 }: {
-  home.homeDirectory = "/home/${myvars.username}";
+  home.homeDirectory = "/home/${myVars.username}";
 
   # default environment variables go here
   home.sessionVariables = {

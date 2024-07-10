@@ -2,13 +2,13 @@
   config,
   lib,
   pkgs,
-  myvars,
+  myVars,
   ...
 }: {
   programs.git = {
     enable = true;
-    userName = myvars.username;
-    userEmail = myvars.email;
+    userName = myVars.username;
+    userEmail = myVars.email;
 
     lfs.enable = true;
 
