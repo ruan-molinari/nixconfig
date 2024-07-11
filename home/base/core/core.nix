@@ -25,6 +25,9 @@
   ];
 
   programs = {
+    # need a browser
+    firefox.enable = true;
+
     zoxide = {
       enable = true;
       enableBashIntegration = true;
