@@ -12,10 +12,20 @@
     xremap-flake.url = "github:xremap/nix-flake"; # hardware input remapping
 
     nix-gaming.url = "github:fufexan/nix-gaming"; # gaming related stuff
+
+    # anyrun - a wayland launcher
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # themes for alacritty
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @inputs:
   let 
+
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
 
@@ -26,12 +36,12 @@
 
   in {
     nixosConfigurations = {
-      default = lib.nixosSystem {
+      desktop = lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = args;
 
         modules = [
-          ./hosts/default
+          ./hosts/linux/desktop
         ];
       };
 
@@ -42,7 +52,7 @@
         inherit pkgs;
         extraSpecialArgs = args;
         modules = [
-          ./home/linux/core.nix
+          ./home/linux/gui.nix
         ];
       };
     };

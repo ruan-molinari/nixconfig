@@ -3,7 +3,7 @@
   programs.wezterm = {
     enable = true;
 
-    extraConfigs = ''
+    extraConfig = ''
       -- Pull in the wezterm API
       local wezterm = require 'wezterm'
 
