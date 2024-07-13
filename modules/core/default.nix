@@ -25,7 +25,8 @@
 
   services.xserver.xkb = {
     layout = "us";
-    variant = "dvorak";
+    variant = "dvorak,us";
+    options = "grp:win_space_toggle";
   };
 
   console.useXkbConfig = true;

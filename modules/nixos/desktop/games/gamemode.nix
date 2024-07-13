@@ -3,6 +3,7 @@
   config,
   pkgs,
   lib,
+  myVars,
   inputs,
   ...
 }: let
@@ -49,6 +50,8 @@ in {
       };
     };
   };
+
+  users.users.${myVars.username}.extraGroups = [ "gamemode" ];
 
   # see https://github.com/fufexan/nix-gaming/#pipewire-low-latency
   services.pipewire.lowLatency.enable = true;

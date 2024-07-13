@@ -37,7 +37,7 @@
     tree
     gnutar
     rsync
-    ncdu # dusk usage utility
+    ncdu # disk usage utility
   ];
 
   users.users.${myVars.username} = {
