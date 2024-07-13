@@ -3,6 +3,7 @@
   lib,
   config,
   myVars,
+  inputs,
   ...
 }:
 with lib; let
@@ -18,19 +19,27 @@ in {
 
   options.modules.desktop = {
     wayland = {
-      enable = mkEnableOption "Wayland Display Server";
+      enable = true;
+      #enable = mkEnableOption "Wayland Display Server";
     };
     xorg = {
       enable = mkEnableOption "Xorg Display Server";
     };
   };
 
-  config.xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-    ];
+  config = {
+    programs.hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
+
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
   };
 
   # config = mkMerge [

@@ -22,6 +22,13 @@
   services.flatpak.enable = true;
   services.ratbagd.enable = true;
   services.input-remapper.enable = true;
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "dvorak";
+  };
+
+  console.useXkbConfig = true;
   
   programs.nix-ld.enable = true;
 

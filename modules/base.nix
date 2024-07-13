@@ -37,6 +37,7 @@
     tree
     gnutar
     rsync
+    ncdu # dusk usage utility
   ];
 
   users.users.${myVars.username} = {
@@ -49,6 +50,5 @@
     experimental-features = ["nix-command" "flakes"];
 
     trusted-users = [myVars.username];
-
   };
 }
