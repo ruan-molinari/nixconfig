@@ -1,7 +1,6 @@
 {pkgs, ...}: {
 
   fonts = {
-
     # user defined fonts
     enableDefaultPackages = true; # make it false to use custom fonts
     # fontconfig.defaultFonts = {

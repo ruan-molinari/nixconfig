@@ -11,6 +11,9 @@
       "modules/nixos/desktop.nix"
     ];
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   services.xserver.enable = true;
 
   hardware.graphics = {
