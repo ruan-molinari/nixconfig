@@ -36,7 +36,7 @@ in {
     "WLR_NO_HARDWARE_CURSORS,1"
   ];
 
-  home.packages = (with hyprland-pkgs; [
+  config.home.packages = (with hyprland-pkgs; [
     
   ]) ++ (with pkgs; [
     
