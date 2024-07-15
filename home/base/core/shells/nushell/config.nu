@@ -14,8 +14,8 @@ $env.config = {
   }
 
   table: {
-    mode: basic # "basic", "compact", "compact_double", "light", "thin", "with_love", "rounded", "reinforced", "heavy", "none", "other"
-    index_mode: auto # "always", "never", "auto" (shews indexes when table has indexes)
+    mode: compact # "basic", "compact", "compact_double", "light", "thin", "with_love", "rounded", "reinforced", "heavy", "none", "other"
+    index_mode: auto # "auto" (shows indexes when table has indexes), "always", "never" 
     trim: {
       methodology: wrapping # "wrapping" or "truncating"
       wrapping_try_keep_words: true

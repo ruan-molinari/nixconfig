@@ -15,4 +15,36 @@ $env.PROMPT_INDICATOR_VI_INSERT = ": "
 $env.PROMPT_INDICATOR_VI_NORMAL = "〉"
 $env.PROMPT_MULTILINE_INDICATOR = "::: "
 
-# TODO: use the system and add to $env.PATH what is not set automatically with package managers
+# -------------------------------------------------
+# -- PATH additions from now on
+# -------------------------------------------------
+
+# executable binaries go in this dir
+# make a symlink to a compiled binary in this dir,
+# this is especially practical for applications built from source
+$env.BIN = ([$env.HOME bin] | path join)
+
+# env variable for any system
+$env.PATH = (
+    $env.PATH
+    | split row (char esep)
+    | append $env.BIN
+    | uniq # filters so the paths are unique
+    )
+
+if $nu.os-info.name == macos { # env variables for macos
+  $env.PATH = (
+      $env.PATH
+      | split row (char esep)
+      | append '/opt/homebrew/bin'
+      | uniq
+      )
+} else if $nu.os-info.name == linux { # env variables for linux
+  $env.PATH = (
+      $env.PATH
+      | split row (char esep)
+      | uniq
+      )
+}
+
+# -------------------------------------------------
