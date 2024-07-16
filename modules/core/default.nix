@@ -28,6 +28,9 @@
   };
 
   console.useXkbConfig = true;
+
+  users.defaultUserShell = pkgs.nushell;
+  environment.shells = with pkgs; [nushell];
   
   programs.nix-ld.enable = true;
 
