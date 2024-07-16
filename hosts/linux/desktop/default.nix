@@ -7,8 +7,9 @@
   imports =
     myLib.scanPaths ./.
       ++ map myLib.relativeToRoot [
-      "modules"
       "modules/nixos/desktop.nix"
+
+      "modules/optional/xremap.nix"
     ];
 
   hardware.bluetooth.enable = true;

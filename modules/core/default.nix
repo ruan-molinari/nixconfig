@@ -3,12 +3,10 @@
   pkgs,
   inputs,
   myVars,
+  myLib,
   ...
 }: {
-  imports = [
-    ./audio.nix
-    ./nix.nix
-  ];
+  imports = myLib.scanPaths ./.;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

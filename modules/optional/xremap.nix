@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  myVars,
   ...
 }: {
   imports = 
@@ -10,8 +11,12 @@
 
   services = {
     xremap = {
-      #withGnome = true;
-      userName = "ruan";
+      userName = myVars.username;
+      serviceMode = "user";
+
+      # TODO: make it enable the feature being used
+      withKDE = true;
+      #withHypr = true;
 
       config = {
         modmap = [
@@ -41,7 +46,11 @@
               Z = "X";
               X = "C";
               C = "V";
+
+              # Side button
+              LEFTALT = "LEFTCONTROL";
             };
+
             device = {
               only = "Razer Razer Tartarus Pro";
             };

@@ -4,6 +4,10 @@
   ...
 } @ args: {
 
+  imports = [
+    ./core
+  ];
+
   # Auto upgrade nix
   nix.package = pkgs.nixVersions.latest;
 
