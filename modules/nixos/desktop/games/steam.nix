@@ -7,7 +7,6 @@
     package = pkgs.steam.override {
       extraPkgs = pkgs:
         with pkgs; [
-          steam-run
           gamescope
           mangohud
           keyutils

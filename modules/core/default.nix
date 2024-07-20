@@ -23,7 +23,7 @@
 
   services.xserver.xkb = {
     layout = "us";
-    variant = "dvorak,us";
+    variant = "dvorak";
     options = "grp:win_space_toggle";
   };
 
