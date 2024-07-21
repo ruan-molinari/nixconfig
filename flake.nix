@@ -27,9 +27,11 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, nix-colors, ... } @inputs:
   let 
 
     lib = nixpkgs.lib;
@@ -38,7 +40,7 @@
     myLib = import ./lib { inherit lib; };
     myVars = import ./vars { inherit lib; };
 
-    args = {inherit inputs myLib myVars;};
+    args = {inherit inputs myLib myVars nix-colors;};
 
   in {
     nixosConfigurations = {
