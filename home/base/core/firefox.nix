@@ -2,16 +2,14 @@
   config,
   lib,
   pkgs,
+  inputs,
+  ...
 }:
-
 {
-  environment.systemPackages = [
-    (pkgs.firefox.overrideAttrs (old: {
-      buildCommand =
-        old.buildCommand
-        + ''
-          substituteInPlace $out/bin/firefox --replace "exec -a" "MOZ_ENABLE_WAYLAND=0 exec -a"
-        '';
-    }))
-  ];
+
+  programs.firefox.enable = true;
+
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = 0;
+  };
 }
