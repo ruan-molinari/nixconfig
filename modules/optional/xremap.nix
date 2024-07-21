@@ -15,7 +15,7 @@
       serviceMode = "user";
 
       # TODO: make it enable the feature being used
-      withKDE = true;
+      #withKDE = true;
       #withHypr = true;
 
       config = {

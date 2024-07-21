@@ -12,6 +12,8 @@ in {
   imports = [
     inputs.anyrun.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
+
+    ./values
   ];
 
   options.modules.desktop.hyprland = {
