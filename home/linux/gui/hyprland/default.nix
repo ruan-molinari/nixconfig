@@ -26,6 +26,7 @@ in {
     settings = {
       "$mod" = "SUPER";
     };
+
   };
 
   config.wayland.windowManager.hyprland.settings.env = [
