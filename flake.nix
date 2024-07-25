@@ -9,8 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    xremap-flake.url = "github:xremap/nix-flake"; # hardware input remapping
-
     nix-gaming.url = "github:fufexan/nix-gaming"; # gaming related stuff
 
     # anyrun - a wayland launcher

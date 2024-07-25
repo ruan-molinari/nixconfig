@@ -9,7 +9,7 @@
       ++ map myLib.relativeToRoot [
       "modules/nixos/desktop.nix"
 
-      "modules/optional/xremap.nix"
+      "modules/optional/keyd.nix"
     ];
 
   hardware.bluetooth.enable = true;
