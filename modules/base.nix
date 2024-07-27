@@ -40,6 +40,7 @@
     which
     tree
     gnutar
+    stow
     rsync
     ncdu # disk usage utility
   ];
