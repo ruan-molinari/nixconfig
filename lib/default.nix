@@ -1,5 +1,6 @@
 { lib, ... }: {
   relativeToRoot = lib.path.append ../.;
+  relativeToDotfiles = lib.path.append ../dotfiles/.;
   scanPaths = path:
     builtins.map
     (f: (path + "/${f}"))
