@@ -29,7 +29,7 @@
             x = "c";
             c = "v";
 
-            control = "alt";
+            alt = "control";
           };
         };
       };
