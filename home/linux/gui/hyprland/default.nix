@@ -13,7 +13,7 @@ in {
     inputs.anyrun.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
 
-    ./values
+    # ./values
   ];
 
   options.modules.desktop.hyprland = {
