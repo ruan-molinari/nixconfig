@@ -19,16 +19,19 @@ $env.PROMPT_MULTILINE_INDICATOR = "::: "
 # -- PATH additions from now on
 # -------------------------------------------------
 
-# executable binaries go in this dir
-# make a symlink to a compiled binary in this dir,
+# Executable binaries go in this dir.
+# Make a symlink to a compiled binary in this dir,
 # this is especially practical for applications built from source
 $env.BIN = ([$env.HOME bin] | path join)
 
-# env variable for any system
+$env.BUN_ROOT = ([$env.HOME .bun] | path join)
+
+# Env variable for any system
 $env.PATH = (
     $env.PATH
     | split row (char esep)
     | append $env.BIN
+    | append ([$env.BUN_ROOT bin] | path join)
     | uniq # filters so the paths are unique
     )
 
