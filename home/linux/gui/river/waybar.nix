@@ -159,7 +159,7 @@
       };
       "custom/power" = {
         "tooltip" = false;
-        "on-click" = "wlogout -p layer-shell &";
+        "on-click" = "rofi -show power-menu -modi power-menu:rofi-power-menu";
         "format" = "⏻ ";
       };
     }];

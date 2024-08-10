@@ -22,7 +22,8 @@ in {
 
       settings = {
         map.normal."${modKey} Return" = "spawn alacritty";
-        map.normal."${modKey} Space" = "spawn 'rofi --show run'";
+        #map.normal."${modKey} Space" = "spawn 'rofi --show run'";
+        map.normal."Super Space" = "spawn 'rofi -show run'";
 
         map.normal."${modKey} w" = "close";
         map.normal."${modKey} q" = "exit";
