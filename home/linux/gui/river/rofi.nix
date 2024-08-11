@@ -6,9 +6,14 @@
 }: {
   config.programs.rofi = {
     enable = true;
+
+    plugins = with pkgs; [
+      rofi-power-menu
+    ];
+
     extraConfig =  {
         /*------- General settings -------*/
-        modi = "drun,run,filebrowser,window";
+        modi = "drun,run,filebrowser,window,power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
         case-sensitive = false;
         cycle = true;
         normalize-match = true;
@@ -27,6 +32,5 @@
   };
 
   config.home.packages = with pkgs; [
-      rofi-power-menu
   ];
 }
