@@ -9,7 +9,6 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-bin;
   };
 
   home.sessionVariables = {
