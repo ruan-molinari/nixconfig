@@ -27,125 +27,141 @@
       @define-color highlightHigh   #${config.colorScheme.palette.base0F};
 
       * {
-        border: none;
-        font-family: 'Fira Code', 'Symbols Nerd Font Mono';
-        font-size: 16px;
-        font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-        min-height: 45px;
+        min-height: 0;
+        font-family: "CaskaydiaMono Nerd Font Mono";
+        font-weight: 500;
       }
 
       window#waybar {
-        background: transparent;
+        transition-property: background-color;
+        transition-duration: 0.5s;
+        background-color: alpha(@base, 0.6);
       }
 
-      #custom-arch, #workspaces {
-        border-radius: 10px;
-        background-color: #11111b;
-        color: #b4befe;
-        margin-top: 15px;
-        margin-right: 15px;
-        padding-top: 1px;
-        padding-left: 10px;
-        padding-right: 10px;
+      window#waybar.hidden {
+        opacity: 0.5;
       }
 
-      #custom-arch {
-        font-size: 20px;
-        margin-left: 15px;
-        color: #b4befe;
+      #tags {
+        background-color: transparent;
       }
 
-      #workspaces button {
-        background: #11111b;
-        color: #b4befe;
+      #tags button {
+        all: initial;
+        min-width: 0;
+        box-shadow: inset 0 -3px transparent;
+        padding: 2px 10px;
+        min-height: 0;
+        margin: 4px;
+        border-radius: 8px;
+        background-color: @base;
+        color: @muted;
       }
 
-      #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery{
-        border-radius: 10px;
-        background-color: #11111b;
-        color: #cdd6f4;
-        margin-top: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-right: 15px;
+      #tags button:hover {
+        box-shadow: inherit;
+        text-shadow: inherit;
+        background-color: @surface;
+        color: @subtle;
       }
-      
-      #backlight, #bluetooth {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        padding-right: 5px;
-        margin-right: 0
+
+      #tags button:active {
+        background-color: @overlay;
+        color: @text;
       }
-      
-      #pulseaudio, #network {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        padding-left: 5px;
+
+      #tags button.focused {
+        background-color: @overlay;
+        color: @text;
+        border: 1px solid @subtle;
       }
-      
-      #clock {
-        margin-right: 0;
+
+      #clock,
+      #pulseaudio,
+      #custom-logo,
+      #custom-power,
+      #cpu,
+      #tray,
+      #memory,
+      #network,
+      #window {
+        min-height: 0;
+        padding: 2px 10px;
+        border-radius: 8px;
+        margin: 4px 4px;
+        background-color: @base;
       }
+
+      #custom-power {
+        color: @love;
+      }
+
     '';
 
-settings = [{
-  "layer" = "top";
-  "position" = "top";
-  modules-left = [
-    "river/tags"
-  ];
-  modules-center = [
-    "clock"
-  ];
-  modules-right = [
-    "pulseaudio"
-      "memory"
-      "cpu"
-      "network"
-      "custom/powermenu"
-      "tray"
-  ];
-  "custom/cava-internal" = {
-    "exec" = "sleep 1s && cava-internal";
-    "tooltip" = false;
+    settings = [{
+      "layer" = "top";
+      "position" = "top";
+      modules-left = [
+        "river/tags"
+      ];
+      modules-center = [
+        "clock"
+      ];
+      modules-right = [
+        "pulseaudio"
+        "memory"
+        "cpu"
+        "network"
+        "custom/powermenu"
+        "tray"
+        "custom/power"
+      ];
+      "custom/cava-internal" = {
+        "exec" = "sleep 1s && cava-internal";
+        "tooltip" = false;
+      };
+      "pulseaudio" = {
+        "scroll-step" = 1;
+        "format" = "{icon} {volume}%";
+        "format-muted" = "󰖁 Muted";
+        "format-icons" = {
+          "default" = [ "" "" "" ];
+        };
+        "on-click" = "pamixer -t";
+        "tooltip" = false;
+      };
+      "clock" = {
+        "interval" = 1;
+        "format" = "{:%I:%M %p  %A %b %d}";
+      };
+      "memory" = {
+        "interval" = 1;
+        "format" = "󰻠 {percentage}%";
+        "states" = {
+          "warning" = 85;
+        };
+      };
+      "cpu" = {
+        "interval" = 1;
+        "format" = "󰍛 {usage}%";
+      };
+      "network" = {
+        "format-disconnected" = "󰯡 Disconnected";
+        "format-ethernet" = "󰒢 Connected!";
+        "format-linked" = "󰖪 {essid} (No IP)";
+        "format-wifi" = "󰖩 {essid}";
+        "interval" = 1;
+        "tooltip" = false;
+      };
+      "tray" = {
+        "icon-size" = 15;
+        "spacing" = 5;
+      };
+      "custom/power" = {
+        "tooltip" = false;
+        "on-click" = "exec rofi -show power-menu";
+        "format" = "⏻ ";
+      };
+    }];
   };
-  "pulseaudio" = {
-    "scroll-step" = 1;
-    "format" = "{icon} {volume}%";
-    "format-muted" = "󰖁 Muted";
-    "format-icons" = {
-      "default" = [ "" "" "" ];
-    };
-    "on-click" = "pamixer -t";
-    "tooltip" = false;
-  };
-  "clock" = {
-    "interval" = 1;
-    "format" = "{:%I:%M %p  %A %b %d}";
-  };
-  "memory" = {
-    "interval" = 1;
-    "format" = "󰻠 {percentage}%";
-    "states" = {
-      "warning" = 85;
-    };
-  };
-  "cpu" = {
-    "interval" = 1;
-    "format" = "󰍛 {usage}%";
-  };
-  "network" = {
-    "format-disconnected" = "󰯡 Disconnected";
-    "format-ethernet" = "󰒢 Connected!";
-    "format-linked" = "󰖪 {essid} (No IP)";
-    "format-wifi" = "󰖩 {essid}";
-    "interval" = 1;
-    "tooltip" = false;
-  };
-  "tray" = {
-    "icon-size" = 15;
-    "spacing" = 5;
-  };
-}];
-};
 }
