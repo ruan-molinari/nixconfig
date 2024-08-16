@@ -10,4 +10,6 @@
   };
 
   xdg.portal.enable = true;
+
+  programs.river.enable = true;
 }

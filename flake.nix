@@ -21,6 +21,9 @@
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
     nix-colors.url = "github:misterio77/nix-colors";
+
+    # gotta look at it more carefully
+    #impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { self, nixpkgs, home-manager, nix-colors, ... } @inputs:
@@ -32,7 +35,8 @@
     myLib = import ./lib { inherit lib; };
     myVars = import ./vars { inherit lib; };
 
-    args = {inherit inputs myLib myVars nix-colors;};
+    args = {inherit inputs myLib myVars;};
+    hmArgs = {inherit inputs myLib myVars nix-colors;};
 
   in {
     nixosConfigurations = {
@@ -50,7 +54,7 @@
     homeConfigurations = {
       ruan = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = args;
+        extraSpecialArgs = hmArgs;
         modules = [
           ./home/linux/gui.nix
         ];
