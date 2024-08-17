@@ -25,12 +25,13 @@ in {
           "waybar"
         ];
         keyboard-layout = "'us(dvorak)'";
+        default-layout = "bsp-layout";
 
         map.normal."Super Return" = "spawn alacritty";
         map.normal."Alt Space" = "spawn 'rofi -show run'";
 
-        map.normal."Alt w" = "close";
-        map.normal."Alt q" = "exit";
+        map.normal."Super Tab" = "spawn \"riverctl keyboard-layout 'us(dvorak)'\"";
+        map.normal."Super A" = "spawn \"riverctl keyboard-layout 'us'\"";
 
         # Super+Alt+{H,J,K,L} to move views
         map.normal."Alt H" = "focus-view left";
@@ -62,23 +63,19 @@ in {
       };
 
       extraConfig = ''
-        for i in {1..9}; do
-          riverctl map normal ${modKey} $i set-focused-tags $((1 << $(($i - 1))))
-          riverctl map normal ${modKey}+Shift $i set-view-tags $((1 << $(($i - 1))))
-          riverctl map normal ${modKey}+Control $i toggle-focused-tags $((1 << $(($i - 1))))
-          riverctl map normal ${modKey}+Control+Shift $i toggle-view-tags $((1 << $(($i - 1))))
-        done
-        '';
-    };
+          for i in {1..9}; do
+            riverctl map normal ${modKey} $i set-focused-tags $((1 << $(($i - 1))))
+            riverctl map normal ${modKey}+Shift $i set-view-tags $((1 << $(($i - 1))))
+            riverctl map normal ${modKey}+Control $i toggle-focused-tags $((1 << $(($i - 1))))
+            riverctl map normal ${modKey}+Control+Shift $i toggle-view-tags $((1 << $(($i - 1))))
+          done
 
-    programs = {
-      rofi.enable = true;
-      waybar = {
-        enable = true;
-      };
+          river-bsp-layout --inner-gap 5 --outer-gap 10 &
+        '';
     };
   };
 
   config.home.packages = with pkgs; [
+    river-bsp-layout
   ];
 }

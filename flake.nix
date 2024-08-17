@@ -22,6 +22,9 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
+    # Layout manager for river
+    river-bsp-layout.url = "github:areif-dev/river-bsp-layout";
+
     # gotta look at it more carefully
     #impermanence.url = "github:nix-community/impermanence";
   };
@@ -29,8 +32,14 @@
   outputs = { self, nixpkgs, home-manager, nix-colors, ... } @inputs:
   let 
 
+    system = "x86_64-linux";
+    pkgs = import nixpkgs rec {
+      inherit system;
+      overlays = [ inputs.river-bsp-layout.overlays.default ];
+    };
+
     lib = nixpkgs.lib;
-    pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
+  
 
     myLib = import ./lib { inherit lib; };
     myVars = import ./vars { inherit lib; };
@@ -41,7 +50,7 @@
   in {
     nixosConfigurations = {
       desktop = lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = args;
 
         modules = [
