@@ -11,14 +11,19 @@ let
 in {
   imports = myLib.scanPaths ./.;
 
+  config.home.packages = with pkgs; [
+    river-bsp-layout
+  ];
+
   options.display.river.enable = true;
 
   config = { 
     wayland.windowManager.river = {
       enable = true;
       xwayland.enable = true;
+      systemd.enable = true;
 
-      extraSessionVariables = { WLR_NO_HARDWARE_CURSORS = "1"; };
+      extraSessionVariables = { WLR_NO_HARDWARE_CURSORS = "1"; XDG_CURRENT_DESKTOP = "river"; };
 
       settings = {
         spawn = [
@@ -75,7 +80,4 @@ in {
     };
   };
 
-  config.home.packages = with pkgs; [
-    river-bsp-layout
-  ];
 }
