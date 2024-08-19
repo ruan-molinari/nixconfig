@@ -10,5 +10,16 @@ return {
         end
       })
     end,
+  },
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      padding = true;
+
+      opleader = {
+        line = '<leader>;l',
+        block = '<leader>;b',
+      }
+    }
   }
 }
