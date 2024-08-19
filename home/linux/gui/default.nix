@@ -1,13 +1,5 @@
-{ myLib, pkgs, ... }: {
-  imports = [
-    ./river
-  ];
+{ myLib, ... }: {
+  imports = myLib.scanPaths ./.;
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-gtk-theme;
-    };
-  };
+
 }

@@ -7,27 +7,10 @@
     enable = true;
 
     style = ''
-      @define-color base            #${config.colorScheme.palette.base00};
-      @define-color surface         #${config.colorScheme.palette.base01};
-      @define-color overlay         #${config.colorScheme.palette.base02};
-
-      @define-color muted           #${config.colorScheme.palette.base03};
-      @define-color subtle          #${config.colorScheme.palette.base04};
-      @define-color text            #${config.colorScheme.palette.base05};
-
-      @define-color love            #${config.colorScheme.palette.base08};
-      @define-color gold            #${config.colorScheme.palette.base09};
-      @define-color rose            #${config.colorScheme.palette.base0A};
-      @define-color pine            #${config.colorScheme.palette.base0B};
-      @define-color foam            #${config.colorScheme.palette.base0C};
-      @define-color iris            #${config.colorScheme.palette.base0D};
-
-      @define-color highlightLow    #21202e;
-      @define-color highlightMed    #403d52;
-      @define-color highlightHigh   #${config.colorScheme.palette.base0F};
 
       * {
         min-height: 0;
+        font-size: 14px;
         font-family: "CaskaydiaMono Nerd Font Mono";
         font-weight: 500;
       }
@@ -35,7 +18,7 @@
       window#waybar {
         transition-property: background-color;
         transition-duration: 0.5s;
-        background-color: alpha(@base, 0.6);
+        background-color: alpha(@theme_bg_color, 0.6);
       }
 
       window#waybar.hidden {
@@ -54,26 +37,27 @@
         min-height: 0;
         margin: 4px;
         border-radius: 8px;
-        background-color: @base;
-        color: @muted;
+        background-color: @theme_bg_color;
+        color: @theme_fg_color;
+        border: 1px solid alpha(@theme_fg_color, 0.1);
       }
 
       #tags button:hover {
         box-shadow: inherit;
         text-shadow: inherit;
-        background-color: @surface;
-        color: @subtle;
+        background-color: @theme_unfocused_bg_color;
+        color: @theme_unfocused_fg_color;
       }
 
       #tags button:active {
-        background-color: @overlay;
-        color: @text;
+        background-color: @theme_bg_color;
+        color: @theme_fg_color;
       }
 
       #tags button.focused {
-        background-color: @overlay;
-        color: @text;
-        border: 1px solid @subtle;
+        background-color: @theme_bg_color;
+        color: @theme_fg_color;
+        border: 1px solid @theme_fg_color;
       }
 
       #clock,
@@ -87,13 +71,14 @@
       #window {
         min-height: 0;
         padding: 2px 10px;
+        border: 1px solid alpha(@theme_fg_color, 0.1);
         border-radius: 8px;
         margin: 4px 4px;
-        background-color: @base;
+        background-color: @theme_bg_color;
       }
 
       #custom-power {
-        color: @love;
+        color: @error_color;
       }
 
     '';
@@ -160,7 +145,7 @@
       "custom/power" = {
         "tooltip" = false;
         "on-click" = "exec rofi -show power-menu";
-        "format" = "⏻ ";
+        "format" = "⏻";
       };
     }];
   };
