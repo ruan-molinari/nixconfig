@@ -1,3 +1,4 @@
+# TODO: remove rofi
 {
   pkgs,
   config,

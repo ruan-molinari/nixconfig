@@ -33,7 +33,7 @@ in {
         default-layout = "bsp-layout";
 
         map.normal."Alt Return" = "spawn alacritty";
-        map.normal."Super Space" = "spawn 'wofi --show drun'";
+        map.normal."Super Space" = "spawn 'fuzzel'";
 
         map.normal."Alt Tab" = "spawn \"riverctl keyboard-layout 'us(dvorak)'\"";
         map.normal."Alt A" = "spawn \"riverctl keyboard-layout 'us'\"";
