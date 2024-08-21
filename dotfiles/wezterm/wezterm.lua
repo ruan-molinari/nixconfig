@@ -4,6 +4,10 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+config.send_composed_key_when_left_alt_is_pressed = true;
+config.use_dead_keys = true;
+config.use_ime = true;
+
 -- This is where you actually apply your config choices
 config.color_scheme = 'rose-pine'
 
