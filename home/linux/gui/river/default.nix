@@ -1,23 +1,24 @@
-{
-  pkgs,
-  config,
-  lib,
-  myLib,
-  inputs,
-  ...
+{ pkgs
+, config
+, lib
+, myLib
+, inputs
+, ...
 }:
 let
   modKey = "Alt";
-in {
+in
+{
   imports = myLib.scanPaths ./.;
 
   config.home.packages = with pkgs; [
     river-bsp-layout
+    ristate
   ];
 
   options.display.river.enable = true;
 
-  config = { 
+  config = {
     wayland.windowManager.river = {
       enable = true;
       xwayland.enable = true;
@@ -56,13 +57,13 @@ in {
         map.normal."Super+Alt J" = "move down 100";
         map.normal."Super+Alt K" = "move up 100";
         map.normal."Super+Alt L" = "move right 100";
-        
+
         # Alt+Shift+{H,J,K,L} to snap views to screen edges
         map.normal."Super+Shift H" = "snap left";
         map.normal."Super+Shift J" = "snap down";
         map.normal."Super+Shift K" = "snap up";
         map.normal."Super+Shift L" = "snap right";
-        
+
         # Super+Alt+Shift+{H,J,K,L} to resize views
         map.normal."Super+Alt+Shift H" = "resize horizontal -100";
         map.normal."Super+Alt+Shift J" = "resize vertical 100";
@@ -80,38 +81,38 @@ in {
       };
 
       extraConfig = ''
-          for i in {1..9}; do
-            riverctl map normal Super $i set-focused-tags $((1 << $(($i - 1))))
-            riverctl map normal Super+Shift $i set-view-tags $((1 << $(($i - 1))))
-            riverctl map normal Super+Control $i toggle-focused-tags $((1 << $(($i - 1))))
-            riverctl map normal Super+Control+Shift $i toggle-view-tags $((1 << $(($i - 1))))
-          done
+        for i in {1..9}; do
+          riverctl map normal Super $i set-focused-tags $((1 << $(($i - 1))))
+          riverctl map normal Super+Shift $i set-view-tags $((1 << $(($i - 1))))
+          riverctl map normal Super+Control $i toggle-focused-tags $((1 << $(($i - 1))))
+          riverctl map normal Super+Control+Shift $i toggle-view-tags $((1 << $(($i - 1))))
+        done
 
-          # Various media key mapping examples for both normal and locked mode which do
-          # not have a modifier
-          for mode in normal locked
-          do
-              # Eject the optical drive (well if you still have one that is)
-              riverctl map $mode None XF86Eject spawn 'eject -T'
+        # Various media key mapping examples for both normal and locked mode which do
+        # not have a modifier
+        for mode in normal locked
+        do
+            # Eject the optical drive (well if you still have one that is)
+            riverctl map $mode None XF86Eject spawn 'eject -T'
           
-              # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-              riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-              riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
-              riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
+            # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
+            riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
+            riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
+            riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
           
-              # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
-              riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
-              riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
-              riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
-              riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
+            # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
+            riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
+            riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
+            riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
+            riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
           
-              # Control screen backlight brightness with brightnessctl (https://github.com/Hummer12007/brightnessctl)
-              riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
-              riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
-          done
+            # Control screen backlight brightness with brightnessctl (https://github.com/Hummer12007/brightnessctl)
+            riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
+            riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+        done
 
-          river-bsp-layout --inner-gap 5 --outer-gap 10 &
-        '';
+        river-bsp-layout --inner-gap 5 --outer-gap 10 &
+      '';
     };
   };
 

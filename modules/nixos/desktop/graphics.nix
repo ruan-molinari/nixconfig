@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.portal = {
     enable = true;
 
@@ -20,7 +20,13 @@
     xdgOpenUsePortal = false;
     extraPortals = with pkgs; [
       # xdg-desktop-portal-gtk # for gtk
-      xdg-desktop-portal-kde  # for kde
+      xdg-desktop-portal-kde # for kde
     ];
   };
+
+
+  environment.systemPackages = with pkgs; [
+    wayshot
+    wf-recorder
+  ];
 }

@@ -1,6 +1,8 @@
-{ config, pkgs, lib, ...}: {
+{ config, pkgs, lib, ... }: {
 
   security.polkit.enable = true;
+
+  systemd.extraConfig = "DefaultLimitNOFILE=4096";
 
   services = {
     xserver.enable = true;

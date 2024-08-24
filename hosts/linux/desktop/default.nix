@@ -6,7 +6,7 @@
 {
   imports =
     myLib.scanPaths ./.
-      ++ map myLib.relativeToRoot [
+    ++ map myLib.relativeToRoot [
       "modules/nixos/desktop.nix"
 
       "modules/optional/keyd.nix"
@@ -18,14 +18,14 @@
   services.xserver.enable = true;
 
   hardware.graphics = {
-      # Enables the graphics driver for OpenGL
-      enable = true;
-      extraPackages = with pkgs; [ vaapiVdpau ];
+    # Enables the graphics driver for OpenGL
+    enable = true;
+    extraPackages = with pkgs; [ vaapiVdpau ];
   };
 
   # Load default nvidia drivers for Xorg and wayland
   services.xserver.videoDrivers = [ "nvidia" ];
-   
+
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -33,6 +33,6 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }
