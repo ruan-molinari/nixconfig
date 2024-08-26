@@ -1,9 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ config
+, lib
+, pkgs
+, inputs
+, ...
 }:
 {
 
@@ -12,6 +11,6 @@
   };
 
   home.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = 0;
+    MOZ_ENABLE_WAYLAND = 1;
   };
 }

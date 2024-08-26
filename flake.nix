@@ -25,49 +25,53 @@
     # Layout manager for river
     river-bsp-layout.url = "github:areif-dev/river-bsp-layout";
 
+    # zen browser flake
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
+
     # gotta look at it more carefully
     #impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { self, nixpkgs, home-manager, nix-colors, ... } @inputs:
-  let 
+    let
 
-    system = "x86_64-linux";
-    pkgs = import nixpkgs rec {
-      inherit system;
-      overlays = [ inputs.river-bsp-layout.overlays.default ];
-    };
-
-    lib = nixpkgs.lib;
-  
-
-    myLib = import ./lib { inherit lib; };
-    myVars = import ./vars { inherit lib; };
-
-    args = {inherit inputs myLib myVars;};
-    hmArgs = {inherit inputs myLib myVars nix-colors;};
-
-  in {
-    nixosConfigurations = {
-      desktop = lib.nixosSystem {
+      system = "x86_64-linux";
+      pkgs = import nixpkgs rec {
         inherit system;
-        specialArgs = args;
-
-        modules = [
-          ./hosts/linux/desktop
-        ];
+        overlays = [ inputs.river-bsp-layout.overlays.default ];
       };
 
-    };
+      lib = nixpkgs.lib;
 
-    homeConfigurations = {
-      ruan = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = hmArgs;
-        modules = [
-          ./home/linux/gui.nix
-        ];
+
+      myLib = import ./lib { inherit lib; };
+      myVars = import ./vars { inherit lib; };
+
+      args = { inherit inputs myLib myVars; };
+      hmArgs = { inherit inputs myLib myVars nix-colors; };
+
+    in
+    {
+      nixosConfigurations = {
+        desktop = lib.nixosSystem {
+          inherit system;
+          specialArgs = args;
+
+          modules = [
+            ./hosts/linux/desktop
+          ];
+        };
+
+      };
+
+      homeConfigurations = {
+        ruan = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = hmArgs;
+          modules = [
+            ./home/linux/gui.nix
+          ];
+        };
       };
     };
-  };
 }
