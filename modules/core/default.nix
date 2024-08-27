@@ -1,10 +1,9 @@
-{
-  config,
-  pkgs,
-  inputs,
-  myVars,
-  myLib,
-  ...
+{ config
+, pkgs
+, inputs
+, myVars
+, myLib
+, ...
 }: {
   imports = myLib.scanPaths ./.;
 
@@ -30,8 +29,8 @@
   console.useXkbConfig = true;
 
   users.defaultUserShell = pkgs.nushell;
-  environment.shells = with pkgs; [nushell];
-  
+  environment.shells = with pkgs; [ nushell ];
+
   programs.nix-ld.enable = true;
 
   users.users.${myVars.username} = {
@@ -49,7 +48,7 @@
       pkg-config # needed for openssl
       openssl # needed for rust
       openssl.dev
-          
+
       libratbag # Configuration library for gaming mice
       piper # GTK frontend for libratbag mouse config daemon
 
@@ -73,7 +72,7 @@
       bun
 
       (with dotnetCorePackages; combinePackages [
-       sdk_7_0_3xx
+        sdk_7_0_3xx
       ])
     ];
   };

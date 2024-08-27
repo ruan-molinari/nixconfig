@@ -13,5 +13,12 @@
 
   xdg.portal.enable = true;
 
-  programs.river.enable = true;
+  programs.river = {
+    enable = true;
+    xwayland.enable = true;
+
+    extraPackages = with pkgs; [
+      kanshi
+    ];
+  };
 }

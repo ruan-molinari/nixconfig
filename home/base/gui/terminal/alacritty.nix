@@ -1,8 +1,7 @@
-{
-  pkgs,
-  config,
-  nix-colors,
-  ...
+{ pkgs
+, config
+, nix-colors
+, ...
 }: {
 
   programs.alacritty = {
@@ -15,6 +14,11 @@
         decorations = "None";
         opacity = 0.8;
         blur = true;
+
+        padding = {
+          x = 5;
+          y = 5;
+        };
       };
 
       colors = {

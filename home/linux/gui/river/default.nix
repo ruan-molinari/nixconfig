@@ -12,8 +12,8 @@ in
   imports = myLib.scanPaths ./.;
 
   config.home.packages = with pkgs; [
-    river-bsp-layout
     ristate
+    wideriver
   ];
 
   options.display.river.enable = true;
@@ -31,7 +31,12 @@ in
           "waybar"
         ];
         keyboard-layout = "'us(dvorak)'";
-        default-layout = "bsp-layout";
+
+        # Adds server-side rendering decorations.
+        # Required by wideriver to display borders on all windows.
+        rule-add = "ssd";
+
+        default-layout = "wideriver";
 
         map.normal."Alt Return" = "spawn alacritty";
         map.normal."Super Space" = "spawn 'fuzzel'";
@@ -111,7 +116,23 @@ in
             riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
         done
 
-        river-bsp-layout --inner-gap 5 --outer-gap 10 &
+        wideriver \
+          --layout right \
+          --layout-alt monocle \
+          --stack dwindle \
+          --count-master 1 \
+          --ratio-master 0.50 \
+          --count-wide-left 0 \
+          --ratio-wide 0.35 \
+          --inner-gaps 5 \
+          --outer-gaps 10 \
+          --border-width 2 \
+          --border-width-monocle 0 \
+          --border-color-focused 0xc4a7e7 \
+          --border-color-unfocused 0x21202e \
+          --log-threshold info &
+
+        kanshi &
       '';
     };
   };

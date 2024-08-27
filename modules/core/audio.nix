@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -13,5 +12,7 @@
     jack.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+  ];
 }
