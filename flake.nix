@@ -37,7 +37,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs rec {
         inherit system;
-        overlays = [ inputs.river-bsp-layout.overlays.default ];
+        overlays = [ ];
       };
 
       lib = nixpkgs.lib;
