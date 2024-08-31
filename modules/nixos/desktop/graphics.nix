@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   xdg.portal = {
     enable = true;
 
@@ -18,9 +18,9 @@
     # xdg-open is used by almost all programs to open a unknown file/uri
     # alacritty as an example, it use xdg-open as default, but you can also custom this behavior
     xdgOpenUsePortal = false;
-    extraPortals = with pkgs; [
+    extraPortals = [
       # xdg-desktop-portal-gtk # for gtk
-      xdg-desktop-portal-kde # for kde
+      inputs.xdg-luminous
     ];
   };
 

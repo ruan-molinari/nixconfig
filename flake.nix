@@ -22,11 +22,10 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    # Layout manager for river
-    river-bsp-layout.url = "github:areif-dev/river-bsp-layout";
-
     # zen browser flake
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+
+    xdg-luminous.url = "github:waycrate/xdg-desktop-portal-luminous";
 
     # gotta look at it more carefully
     #impermanence.url = "github:nix-community/impermanence";
