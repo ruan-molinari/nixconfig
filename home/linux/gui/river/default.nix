@@ -29,6 +29,7 @@ in
       settings = {
         spawn = [
           "waybar"
+          "kanshi"
         ];
         keyboard-layout = "'us(dvorak)'";
 
@@ -41,15 +42,21 @@ in
         map.normal."Alt Return" = "spawn alacritty";
         map.normal."Super Space" = "spawn 'fuzzel'";
 
-        map.normal."Alt Tab" = "spawn \"riverctl keyboard-layout 'us(dvorak)'\"";
-        map.normal."Alt A" = "spawn \"riverctl keyboard-layout 'us'\"";
+        map.normal."Alt Tab" = "keyboard-layout 'us(dvorak)'";
+        map.normal."Alt A" = "keyboard-layout 'us'";
 
+        map.normal."Super Q" = "close";
+        map.normal."Super+Shift E" = "exit";
+
+        map.normal."Super F" = "toggle-float";
         map.normal."Super Tab" = "focus-view next";
         map.normal."Super+Shift Tab" = "focus-view previous";
 
-        map.normal."Super Q" = "close";
+        map.normal."Super+Alt H" = "focus-output left";
+        map.normal."Super+Alt L" = "focus-output right";
 
-        map.normal."Super+Shift E" = "exit";
+        map.normal."Super+Alt+Control H" = "send-to-output left";
+        map.normal."Super+Alt+Control L" = "send-to-output right";
 
         # Super+Alt+{H,J,K,L} to move views
         map.normal."Super H" = "focus-view left";
@@ -58,10 +65,10 @@ in
         map.normal."Super L" = "focus-view right";
 
         # Super+Alt+{H,J,K,L} to move views
-        map.normal."Super+Alt H" = "move left 100";
-        map.normal."Super+Alt J" = "move down 100";
-        map.normal."Super+Alt K" = "move up 100";
-        map.normal."Super+Alt L" = "move right 100";
+        #map.normal."Super+Alt H" = "move left 100";
+        #map.normal."Super+Alt J" = "move down 100";
+        #map.normal."Super+Alt K" = "move up 100";
+        #map.normal."Super+Alt L" = "move right 100";
 
         # Alt+Shift+{H,J,K,L} to snap views to screen edges
         map.normal."Super+Shift H" = "snap left";
@@ -75,14 +82,13 @@ in
         map.normal."Super+Alt+Shift K" = "resize vertical -100";
         map.normal."Super+Alt+Shift L" = "resize horizontal 100";
 
-        map-pointer.normal."Super+Shift SCROLL_UP" = "resize vertical 100";
-        map-pointer.normal."Super+Shift SCROLL_DOWN" = "resize vertical -100";
-        map-pointer.normal."Super+Control SCROLL_UP" = "resize horizontal 100";
-        map-pointer.normal."Super+Control SCROLL_DOWN" = "resize horizontal -100";
+        #map-pointer.normal."Super+Shift SCROLL_UP" = "resize vertical 100";
+        #map-pointer.normal."Super+Shift SCROLL_DOWN" = "resize vertical -100";
+        #map-pointer.normal."Super+Control SCROLL_UP" = "resize horizontal 100";
+        #map-pointer.normal."Super+Control SCROLL_DOWN" = "resize horizontal -100";
 
         map-pointer.normal."Super BTN_LEFT" = "move-view";
         map-pointer.normal."Super BTN_RIGHT" = "resize-window";
-        map-pointer.normal."Super BTN_MIDDLE" = "toggle-float";
       };
 
       extraConfig = ''
@@ -132,7 +138,8 @@ in
           --border-color-unfocused 0x21202e \
           --log-threshold info &
 
-        kanshi &
+        eww daemon &
+        eww open bar &
       '';
     };
   };

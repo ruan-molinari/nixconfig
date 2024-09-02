@@ -12,7 +12,10 @@
     jack.enable = true;
   };
 
+  services.mpd.enable = true;
+
   environment.systemPackages = with pkgs; [
     alsa-utils
+    mpc-cli
   ];
 }

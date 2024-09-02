@@ -6,6 +6,7 @@
 .bar {
   background-color: alpha(@theme_bg_color);
   color: @theme_fg_color;
+  border-radius: 16px;
   padding: 10px;
 }
 
@@ -54,6 +55,6 @@
   font-size: large;
 }
 
-.workspaces button:hover {
+.tags button:hover {
   color: @theme_bg_color;
 }

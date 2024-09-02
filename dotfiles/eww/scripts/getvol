@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 if command -v pamixer &>/dev/null; then
     if [ true == $(pamixer --get-mute) ]; then
         echo 0

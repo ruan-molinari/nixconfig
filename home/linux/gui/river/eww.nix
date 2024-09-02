@@ -2,10 +2,8 @@
 , myLib
 , ...
 }: {
-
-  #programs.eww = {
-  #  enable = true;
-  #  configDir = myLib.relativeToDotfiles "eww";
-  #};
-
+  programs.eww = {
+    enable = true;
+    configDir = myLib.relativeToDotfiles "eww";
+  };
 }
