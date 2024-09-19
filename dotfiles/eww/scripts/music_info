@@ -2,8 +2,8 @@
 # shoutout to adi1090x whom I copied those scripts from
 
 ## Get data
-STATUS="$(mpc status)"
-COVER="/tmp/.music_cover.png"
+STATUS="$(playerctl status)"
+COVER="images/music.png"
 MUSIC_DIR="$HOME/Music"
 
 ## Get status
@@ -17,7 +17,7 @@ get_status() {
 
 ## Get song
 get_song() {
-  song=`mpc -f %title% current`
+  song=`playerctl metadata -f {{title}}`
   if [[ -z "$song" ]]; then
     echo "Offline"
   else
@@ -27,7 +27,7 @@ get_song() {
 
 ## Get artist
 get_artist() {
-  artist=`mpc -f %artist% current`
+  artist=`playerctl metadata -f {{artist}}`
   if [[ -z "$artist" ]]; then
     echo "Offline"
   else
@@ -63,8 +63,9 @@ get_ttime() {
 
 ## Get cover
 get_cover() {
-	ffmpeg -i "${MUSIC_DIR}/$(mpc current -f %file%)" "${COVER}" -y &> /dev/null
-	STATUS=$?
+	#ffmpeg -i "${MUSIC_DIR}/$(playerctl metadata -f {{artUrl}})" "${COVER}" -y &> /dev/null
+	#STATUS=$?
+  COVER=`playerctl metadata -f {{artUrl}}`
 
 	# Check if the file has a embbeded album art
 	if [ "$STATUS" -eq 0 ];then

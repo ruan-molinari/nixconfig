@@ -31,7 +31,7 @@ in
           "waybar"
           "kanshi"
         ];
-        keyboard-layout = "'us(dvorak)'";
+        keyboard-layout = "-options 'compose:rwin' 'us(dvorak)'";
 
         # Adds server-side rendering decorations.
         # Required by wideriver to display borders on all windows.
@@ -42,8 +42,8 @@ in
         map.normal."Alt Return" = "spawn alacritty";
         map.normal."Super Space" = "spawn 'fuzzel'";
 
-        map.normal."Alt Tab" = "keyboard-layout 'us(dvorak)'";
-        map.normal."Alt A" = "keyboard-layout 'us'";
+        map.normal."Alt Tab" = "keyboard-layout -options 'compose:rwin' 'us(dvorak)'";
+        map.normal."Alt A" = "keyboard-layout -options 'compose:rwin' 'us'";
 
         map.normal."Super Q" = "close";
         map.normal."Super+Shift E" = "exit";
