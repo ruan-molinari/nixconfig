@@ -1,7 +1,6 @@
-{
-  pkgs,
-  myVars,
-  ...
+{ pkgs
+, myVars
+, ...
 } @ args: {
 
   imports = [
@@ -43,6 +42,7 @@
     stow
     rsync
     ncdu # disk usage utility
+    ffmpeg-full # video and image conversion tool
   ];
 
   users.users.${myVars.username} = {
@@ -52,8 +52,8 @@
   };
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
 
-    trusted-users = [myVars.username];
+    trusted-users = [ myVars.username ];
   };
 }

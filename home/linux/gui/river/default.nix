@@ -30,6 +30,7 @@ in
         spawn = [
           "waybar"
           "kanshi"
+          "swww-daemon"
         ];
         keyboard-layout = "-options 'compose:rwin' 'us(dvorak)'";
 

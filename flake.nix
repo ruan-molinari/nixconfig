@@ -27,6 +27,9 @@
 
     xdg-luminous.url = "github:waycrate/xdg-desktop-portal-luminous";
 
+    # animated wallpaper engine for wayland
+    swww.url = "github:LGFae/swww";
+
     # gotta look at it more carefully
     #impermanence.url = "github:nix-community/impermanence";
   };
