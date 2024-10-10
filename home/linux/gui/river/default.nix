@@ -139,6 +139,8 @@ in
           --border-color-unfocused 0x21202e \
           --log-threshold info &
 
+        swww img --resize=fit ~/wallpapers/xal-atath.jpg &
+
         eww daemon &
         eww open bar &
       '';

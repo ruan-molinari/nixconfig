@@ -11,7 +11,7 @@
             position = "0,0";
           }
           {
-            criteria = "HDMI-A-1";
+            criteria = "HDMI-A-2";
             mode = "2560x1440@75Hz";
             position = "2570,0";
           }
