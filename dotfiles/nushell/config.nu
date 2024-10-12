@@ -61,7 +61,6 @@ $env.config = {
     metric: true
     format: "auto"
   }
-  use_grid_icons: true
   footer_mode: "25" # "always", "never", numbel_of_rows, "auto"
   float_precision: 2
   use_ansi_coloring: true

@@ -71,6 +71,7 @@
       nodejs_20
       bun
 
+
       (with dotnetCorePackages; combinePackages [
         sdk_7_0_3xx
       ])

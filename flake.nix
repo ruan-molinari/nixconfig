@@ -11,12 +11,6 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming"; # gaming related stuff
 
-    # anyrun - a wayland launcher
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # themes for alacritty
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
