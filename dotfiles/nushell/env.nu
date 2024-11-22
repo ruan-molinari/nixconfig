@@ -25,6 +25,7 @@ $env.PROMPT_MULTILINE_INDICATOR = "::: "
 $env.BIN = ([$env.HOME bin] | path join)
 
 $env.BUN_ROOT = ([$env.HOME .bun] | path join)
+$env.CARGO = ([$env.HOME .cargo] | path join)
 
 # Env variable for any system
 $env.PATH = (
@@ -32,6 +33,7 @@ $env.PATH = (
     | split row (char esep)
     | append $env.BIN
     | append ([$env.BUN_ROOT bin] | path join)
+    | append ([$env.CARGO bin] | path join)
     | uniq # filters so the paths are unique
     )
 
