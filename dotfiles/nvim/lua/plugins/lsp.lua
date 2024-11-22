@@ -305,17 +305,17 @@ return {
 	},
 
 	-- Formatting
-	{
+	--[[ {
 		"stevearc/conform.nvim",
 		config = function()
 			local conform = require("conform")
 
-			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-				pattern = { "*" },
-				callback = function(args)
-					conform.format({ bufnr = args.buf })
-				end,
-			})
+			-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			-- 	pattern = { "*" },
+			-- 	callback = function(args)
+			-- 		conform.format({ bufnr = args.buf })
+			-- 	end,
+			-- })
 
 			conform.setup({
 				format_on_save = {
@@ -324,11 +324,11 @@ return {
 				},
 				formatters_by_ft = {
 					lua = { "stylua" },
-					javascript = { "prettierd", "prettier" },
-					typescript = { "prettierd", "prettier" },
+					javascript = { "prettierd" },
+					typescript = { "prettierd" },
 					go = { "gofumpt", "gofmt" },
 				},
 			})
 		end,
-	},
+	}, ]]
 }

@@ -28,6 +28,7 @@
   "nvim-dap": { "branch": "master", "commit": "281a2e4cd1e7a17cea7ecb1745d84a8ab1249925" },
   "nvim-dap-ui": { "branch": "master", "commit": "a5606bc5958db86f8d92803bea7400ee26a8d7e4" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "484995d573c0f0563f6a66ebdd6c67b649489615" },
+  "nvim-dap-vscode-js": { "branch": "main", "commit": "03bd29672d7fab5e515fc8469b7d07cc5994bbf6" },
   "nvim-lint": { "branch": "master", "commit": "debabca63c0905b59ce596a55a8e33eafdf66342" },
   "nvim-lspconfig": { "branch": "master", "commit": "b21c166bbf337734f2a39734a905c1c3e298205c" },
   "nvim-nio": { "branch": "master", "commit": "a428f309119086dc78dd4b19306d2d67be884eee" },
@@ -44,5 +45,7 @@
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
   "toggleterm.nvim": { "branch": "main", "commit": "137d06fb103952a0fb567882bb8527e2f92d327d" },
   "vim-wakatime": { "branch": "master", "commit": "53bba6bb8342de9cbdafc82142a9b5e82008d858" },
+  "vscode-js-debug": { "branch": "main", "commit": "caaec517b832eb1851d398cc3d6b2f701fdc424a" },
+  "yuck.vim": { "branch": "master", "commit": "9b5e0370f70cc30383e1dabd6c215475915fe5c3" },
   "zig-tools.nvim": { "branch": "master", "commit": "78a85278fe5d480da2f01df4db898757d7e953b5" }
 }
