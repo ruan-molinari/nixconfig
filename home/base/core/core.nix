@@ -1,6 +1,5 @@
-{
-  pkgs,
-  ...
+{ pkgs
+, ...
 }: {
   home.packages = with pkgs; [
     # Misc
@@ -16,7 +15,7 @@
     # search for files by name, faster than find
     fd
     # search for files by its content, replacement of grep
-    (ripgrep.override {withPCRE2 = true;})
+    (ripgrep.override { withPCRE2 = true; })
 
     bat
 

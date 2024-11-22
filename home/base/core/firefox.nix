@@ -7,7 +7,7 @@
 {
 
   programs.firefox = {
-    enable = true;
+    #enable = true;
   };
 
   home.sessionVariables = {

@@ -30,6 +30,7 @@ in
         spawn = [
           "waybar"
           "kanshi"
+          "swww-daemon"
         ];
         keyboard-layout = "-options 'compose:rwin' 'us(dvorak)'";
 
@@ -137,6 +138,8 @@ in
           --border-color-focused 0xc4a7e7 \
           --border-color-unfocused 0x21202e \
           --log-threshold info &
+
+        swww img --resize=fit ~/wallpapers/xal-atath.jpg &
 
         eww daemon &
         eww open bar &

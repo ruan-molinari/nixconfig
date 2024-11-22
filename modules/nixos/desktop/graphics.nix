@@ -24,9 +24,10 @@
     ];
   };
 
+  environment.systemPackages = [
+    pkgs.wayshot
+    pkgs.wf-recorder
 
-  environment.systemPackages = with pkgs; [
-    wayshot
-    wf-recorder
+    inputs.swww.packages.${pkgs.system}.swww
   ];
 }

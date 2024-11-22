@@ -324,8 +324,8 @@ return {
 				},
 				formatters_by_ft = {
 					lua = { "stylua" },
-					javascript = { "prettierd" },
-					typescript = { "prettierd" },
+					javascript = { "conform" },
+					typescript = { "conform" },
 					go = { "gofumpt", "gofmt" },
 				},
 			})

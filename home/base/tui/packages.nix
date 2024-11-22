@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
 
   home.packages = with pkgs; [
     #-- c/c++
@@ -42,7 +42,7 @@
           # rapidfuzz
         ]
     ))
-    
+
     #-- rust
     #rust-analyzer
     # TODO: use rustup to install rust stuff
@@ -62,7 +62,7 @@
 
     # Dependencies
     gdu
-    (ripgrep.override {withPCRE2 = true;})
-    
+    (ripgrep.override { withPCRE2 = true; })
+
   ];
 }

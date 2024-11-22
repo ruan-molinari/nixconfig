@@ -11,12 +11,6 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming"; # gaming related stuff
 
-    # anyrun - a wayland launcher
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # themes for alacritty
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
 
@@ -26,6 +20,9 @@
     zen-browser.url = "github:MarceColl/zen-browser-flake";
 
     xdg-luminous.url = "github:waycrate/xdg-desktop-portal-luminous";
+
+    # animated wallpaper engine for wayland
+    swww.url = "github:LGFae/swww";
 
     # gotta look at it more carefully
     #impermanence.url = "github:nix-community/impermanence";
