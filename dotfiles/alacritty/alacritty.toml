@@ -1,0 +1,14 @@
+import = [
+  "~/.config/alacritty/themes/rose-pine.toml",
+]
+live_config_reload = true
+
+[window]
+opacity = 1.0
+blur = true
+option_as_alt = "OnlyLeft"
+padding = { x = 10, y = 5 }
+
+[font]
+normal = { family = "FiraCode Nerd Font Mono" }
+size = 18.00
