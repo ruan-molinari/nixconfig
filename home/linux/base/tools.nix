@@ -4,6 +4,6 @@
     libnotify
     ventoy # create bootable usb
 
-    gnome.nautilus # file explorer
+    nautilus # file explorer
   ];
 }

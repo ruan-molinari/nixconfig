@@ -61,7 +61,7 @@ $env.config = {
     metric: true
     format: "auto"
   }
-  footer_mode: "25" # "always", "never", numbel_of_rows, "auto"
+  footer_mode: 25 # "always", "never", numbel_of_rows, "auto"
   float_precision: 2
   use_ansi_coloring: true
   edit_mode: vi
