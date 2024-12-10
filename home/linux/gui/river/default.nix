@@ -139,7 +139,7 @@ in
           --border-color-unfocused 0x21202e \
           --log-threshold info &
 
-        swww img --resize=fit ~/wallpapers/xal-atath.jpg &
+        swww img --resize=fit ~/wallpapers/wallpaper-mountain.jpg &
 
         eww daemon &
         eww open bar &
