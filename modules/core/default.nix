@@ -38,7 +38,6 @@
     description = myVars.name;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      nerdfonts
       usbutils
       appimage-run
       readline
@@ -72,9 +71,6 @@
       bun
 
 
-      (with dotnetCorePackages; combinePackages [
-        sdk_7_0_3xx
-      ])
     ];
   };
 }

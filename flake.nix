@@ -2,7 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -28,11 +29,16 @@
     #impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-colors, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nix-colors, ... } @inputs:
     let
 
       system = "x86_64-linux";
       pkgs = import nixpkgs rec {
+        inherit system;
+        overlays = [ ];
+      };
+
+      pkgs-unstable = import nixpkgs-unstable rec {
         inherit system;
         overlays = [ ];
       };

@@ -17,7 +17,7 @@
       material-design-icons
       font-awesome
 
-      nerdfonts
+      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
     ];
   };
 }
