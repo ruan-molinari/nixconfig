@@ -60,8 +60,4 @@
     ];
     };
     }; */
-
-  users.users.${myVars.username}.packages = with pkgs; [
-    protonvpn-cli_2
-  ];
 }

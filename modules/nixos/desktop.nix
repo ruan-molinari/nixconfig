@@ -15,6 +15,7 @@ in
     ../base.nix
 
     ./desktop
+    ../optional/protonvpn.nix
   ];
 
   options.modules.desktop = {

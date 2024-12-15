@@ -25,11 +25,14 @@
     # animated wallpaper engine for wayland
     swww.url = "github:LGFae/swww";
 
+    # mix packages (mainly installed for proton vpn)
+    erosanix.url = "github:emmanuelrosa/erosanix";
+
     # gotta look at it more carefully
     #impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nix-colors, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nix-colors, erosanix, ... } @inputs:
     let
 
       system = "x86_64-linux";
@@ -49,7 +52,7 @@
       myLib = import ./lib { inherit lib; };
       myVars = import ./vars { inherit lib; };
 
-      args = { inherit inputs myLib myVars; };
+      args = { inherit inputs myLib myVars erosanix; };
       hmArgs = { inherit inputs myLib myVars nix-colors; };
 
     in
