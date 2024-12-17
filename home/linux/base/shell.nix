@@ -7,5 +7,6 @@
   # default environment variables go here
   home.sessionVariables = {
     DEFAULT_BROWSER = "zen";
+    BROWSER = "zen";
   };
 }

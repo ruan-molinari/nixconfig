@@ -19,6 +19,7 @@
   services.flatpak.enable = true;
   services.ratbagd.enable = true;
   services.input-remapper.enable = true;
+  services.passSecretService.enable = true;
 
   services.xserver.xkb = {
     layout = "us";

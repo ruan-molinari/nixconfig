@@ -18,7 +18,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     # zen browser flake
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     xdg-luminous.url = "github:waycrate/xdg-desktop-portal-luminous";
 
