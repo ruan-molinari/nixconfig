@@ -39,19 +39,25 @@
     description = myVars.name;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
+      # tools
       usbutils
       appimage-run
+      codecrafters-cli
+
+      # dev tools
+      redis
+
+      # libs
       readline
       zlib
       zlib.dev
+      libratbag # Configuration library for gaming mice
 
       pkg-config # needed for openssl
       openssl # needed for rust
       openssl.dev
 
-      libratbag # Configuration library for gaming mice
-      piper # GTK frontend for libratbag mouse config daemon
-
+      
       # TODO: move programming language config to a separate file/module
       # Programming languages/LSPs/tools
       cargo
@@ -70,7 +76,6 @@
 
       nodejs_20
       bun
-
 
     ];
   };

@@ -141,8 +141,8 @@ in
 
         swww img --resize=fit ~/wallpapers/wallpaper-mountain.jpg &
 
-        eww daemon &
-        eww open bar &
+        # eww daemon &
+        # eww open bar &
       '';
     };
   };

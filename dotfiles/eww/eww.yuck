@@ -16,7 +16,7 @@
 ;;;;;;;;;;;;;
 ;; Windows ;;
 (defwindow bar :windowtype "dock"
-               :monitor 0
+               :monitor "0"
                :exclusive true
                :reserve (struts :distance "4%" :side "top")
                :geometry (geometry :x "0%"
@@ -25,6 +25,21 @@
                                    :height "10px"
                                    :anchor "top center")
   (bar))
+
+;;;;;;;;;;;
+;; Power ;;
+(defwindow powermenu
+  :wm-ignore true
+  :windowtype "dock"
+  :geometry (geometry :x "0px"
+                      :y "0%"
+                      :width "10%"
+                      :height "20%"
+                      :anchor "center")
+  (powermenu))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;
 ;; Widgets ;;
@@ -47,7 +62,7 @@
 (defwidget right []
   (box :orientation "h"
        :halign "end"
-    (clock)))
+    (powermenu)))
 
 (defwidget tags []
   (box :class "tags"
@@ -64,6 +79,19 @@
     (button :onclick "riverctl set-focused-tags $((1 << $((7 - 1))))" 7)
     (button :onclick "riverctl set-focused-tags $((1 << $((8 - 1))))" 8)
     (button :onclick "riverctl set-focused-tags $((1 << $((9 - 1))))" 9)))
+
+(defwidget powermenu []
+  (box :class "powermenu"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+       :valign "center"
+       :spacing 20
+    (button :style "color: #d8dee9;" :class "shutdown" :onrightclick "poweroff" "⏻")
+    (button :style "color: #e5e9f0;" :class "reboot" :onrightclick "reboot" "")
+    (button :style "color: #eceff4;" :class "lock" :onrightclick "bsplock" "")
+    (button :style "color: #e8e8e8;" :class "suspend" :onrightclick "mpc -q pause & amixer set Master mute & systemctl suspend" "")
+    (button :style "color: #ffffff;" :class "logout" :onrightclick "bspc quit" "")))
 
 
 ;; (defwidget music []

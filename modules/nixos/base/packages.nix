@@ -34,6 +34,14 @@
     # audio
     pamixer
     playerctl
+
+    # misc
+    codecrafters-cli
+
+    gnome-tweaks
+    gnome-software
+    libsecret
+    dbus
   ];
 
   # replace default editor with neovim
