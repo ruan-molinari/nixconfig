@@ -62,7 +62,7 @@
       # Programming languages/LSPs/tools
       cargo
       rustup
-      # zig
+      zig
       zls
       go
       # odin

@@ -1,5 +1,5 @@
 try {
-  #use ~/.secrets/env.nu
+  use ~/.secrets/env.nu
 }
 
 $env.STARSHIP_SHELL = "nu"
