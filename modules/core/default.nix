@@ -46,6 +46,7 @@
 
       # dev tools
       redis
+      lazygit
 
       # libs
       readline

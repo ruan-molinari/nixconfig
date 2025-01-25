@@ -1,5 +1,3 @@
 { myLib, ... }: {
   imports = myLib.scanPaths ./.;
-
-
 }

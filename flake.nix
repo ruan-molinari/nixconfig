@@ -6,7 +6,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -34,8 +34,8 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nix-colors, erosanix, ... } @inputs:
     let
-
       system = "x86_64-linux";
+  
       pkgs = import nixpkgs rec {
         inherit system;
         overlays = [ ];
@@ -47,7 +47,6 @@
       };
 
       lib = nixpkgs.lib;
-
 
       myLib = import ./lib { inherit lib; };
       myVars = import ./vars { inherit lib; };

@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [
     git
     git-lfs
+    lazygit
 
     # Archives
     zip
