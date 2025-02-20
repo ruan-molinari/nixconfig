@@ -4,11 +4,7 @@
 , myLib
 , inputs
 , ...
-}:
-let
-  modKey = "Alt";
-in
-{
+}: {
   imports = myLib.scanPaths ./.;
 
   config.home.packages = with pkgs; [
@@ -32,7 +28,8 @@ in
           "kanshi"
           "swww-daemon"
         ];
-        keyboard-layout = "-options 'compose:rwin' 'us(dvorak)'";
+        # Uses xkb config
+        keyboard-layout = "-options 'compose:rsuper' 'us(dvorak)'";
 
         # Adds server-side rendering decorations.
         # Required by wideriver to display borders on all windows.
@@ -43,8 +40,8 @@ in
         map.normal."Alt Return" = "spawn alacritty";
         map.normal."Super Space" = "spawn 'fuzzel'";
 
-        map.normal."Alt Tab" = "keyboard-layout -options 'compose:rwin' 'us(dvorak)'";
-        map.normal."Alt A" = "keyboard-layout -options 'compose:rwin' 'us'";
+        map.normal."Alt Tab" = "keyboard-layout -options 'compose:ralt' 'us(dvorak)'";
+        map.normal."Alt A" = "keyboard-layout -options 'compose:ralt' 'us'";
 
         map.normal."Super Q" = "close";
         map.normal."Super+Shift E" = "exit";

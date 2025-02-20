@@ -32,7 +32,7 @@
     #impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nix-colors, erosanix, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, xdg-luminous, home-manager, nix-colors, erosanix, ... } @inputs:
     let
       system = "x86_64-linux";
   
@@ -51,7 +51,7 @@
       myLib = import ./lib { inherit lib; };
       myVars = import ./vars { inherit lib; };
 
-      args = { inherit inputs myLib myVars erosanix; };
+      args = { inherit inputs myLib myVars erosanix xdg-luminous; };
       hmArgs = { inherit inputs myLib myVars nix-colors; };
 
     in

@@ -3,6 +3,7 @@
 , config
 , myVars
 , inputs
+, xdg-luminous
 , ...
 }:
 with lib; let
@@ -34,6 +35,7 @@ in
       wlr.enable = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
+        xdg-luminous
       ];
     };
   };
