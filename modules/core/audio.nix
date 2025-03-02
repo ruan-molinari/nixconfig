@@ -10,6 +10,25 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    extraConfig.pipewire-pulse = {
+      "block-mic-gain-control" = {
+        "pulse.rules" = [
+          {
+            matches = [
+              { "application.process.binary" = "chrome"; }
+              { "application.process.binary" = "electron"; }
+              { "application.process.binary" = "firefox"; }
+              { "application.process.binary" = "Discord"; }
+            ];
+            actions = {
+              quirks = [
+                "block-source-volume"
+              ];
+            };
+          }
+        ];
+      };
+    };
   };
 
   services.mpd.enable = true;
