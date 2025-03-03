@@ -29,7 +29,7 @@
           "swww-daemon"
         ];
         # Uses xkb config
-        keyboard-layout = "-options 'compose:rsuper' 'us(dvorak)'";
+        keyboard-layout = "-options 'compose:ralt' 'us(dvorak)'";
 
         # Adds server-side rendering decorations.
         # Required by wideriver to display borders on all windows.
