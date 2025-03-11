@@ -5,7 +5,7 @@ local has_words_before = function()
 end
 
 local ensure_installed = {
-	"tsserver",
+	"ts_ls",
 	"eslint",
 	-- 'rust_analyzer', -- rust-tools is setting it already
 	"angularls",
