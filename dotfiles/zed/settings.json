@@ -7,13 +7,22 @@
     "enabled": true,
     "version": "2"
   },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "auto_install_extensions": {
     "json": true,
     "make": true,
     "nix": true,
     "toml": true,
-    "zig": true
+    "zig": true,
+    "dockerfile": true,
+    "zed-legacy-themes": true,
+    "wakatime": true,
+    "discord-presence": true
   },
+  "format_on_save": false,
+  "vim_mode": true,
   "lsp": {
     "nix": {
       "binary": {
@@ -36,5 +45,23 @@
     "light": "Rosé Pine Dawn",
     "mode": "system"
   },
-  "vim_mode": true
+
+  "language_overrides": {
+    "TypeScript": {
+      "format_on_save": {
+        "external": {
+          "command": "node_modules/.bin/prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "TSX": {
+      "format_on_save": {
+        "external": {
+          "command": "node_modules/.bin/prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    }
+  }
 }
