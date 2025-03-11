@@ -58,8 +58,7 @@ $env.config = {
     }
   }
   filesize: {
-    metric: true
-    format: "auto"
+    unit: binary
   }
   footer_mode: 25 # "always", "never", numbel_of_rows, "auto"
   float_precision: 2

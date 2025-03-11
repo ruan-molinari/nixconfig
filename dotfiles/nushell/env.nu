@@ -1,6 +1,6 @@
-try {
-  use ~/.secrets/env.nu
-}
+#try {
+#  use ~/.secrets/env.nu
+#}
 
 $env.STARSHIP_SHELL = "nu"
 
