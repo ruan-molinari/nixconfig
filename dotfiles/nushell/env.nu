@@ -46,6 +46,7 @@ if $nu.os-info.name == macos { # env variables for macos
       $env.PATH
       | split row (char esep)
       | append '/opt/homebrew/bin'
+      | append '/opt/podman/bin'
       | uniq
       )
 } else if $nu.os-info.name == linux { # env variables for linux
