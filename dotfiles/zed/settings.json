@@ -1,8 +1,16 @@
 {
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_assistant": false
+  },
   "assistant": {
     "default_model": {
-      "model": "gpt-4o-mini",
-      "provider": "openai"
+      "model": "claude-3-5-sonnet",
+      "provider": "copilot_chat"
     },
     "enabled": true,
     "version": "2"
@@ -21,7 +29,7 @@
     "wakatime": true,
     "discord-presence": true
   },
-  "format_on_save": false,
+  "format_on_save": null,
   "vim_mode": true,
   "lsp": {
     "nix": {
@@ -41,8 +49,8 @@
     }
   },
   "theme": {
-    "dark": "Rosé Pine",
-    "light": "Rosé Pine Dawn",
+    "dark": "Zed Legacy: Rosé Pine Moon",
+    "light": "Zed Legacy: Rosé Pine Dawn",
     "mode": "system"
   },
 
