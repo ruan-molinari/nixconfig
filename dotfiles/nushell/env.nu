@@ -2,6 +2,8 @@
 #  use ~/.secrets/env.nu
 #}
 
+source ./scripts/util.nu
+
 $env.STARSHIP_SHELL = "nu"
 
 def create_left_prompt [] {
