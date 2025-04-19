@@ -17,6 +17,7 @@ in
 
     ./desktop
     ../optional/protonvpn.nix
+    ../optional/wine.nix
   ];
 
   options.modules.desktop = {

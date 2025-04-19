@@ -51,7 +51,7 @@
       myLib = import ./lib { inherit lib; };
       myVars = import ./vars { inherit lib; };
 
-      args = { inherit inputs myLib myVars erosanix xdg-luminous; };
+      args = { inherit inputs myLib myVars erosanix xdg-luminous pkgs-unstable; };
       hmArgs = { inherit inputs myLib myVars nix-colors pkgs-unstable; };
 
     in

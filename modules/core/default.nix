@@ -1,5 +1,6 @@
 { config
 , pkgs
+, pkgs-unstable
 , inputs
 , myVars
 , myLib
@@ -29,8 +30,8 @@
 
   console.useXkbConfig = true;
 
-  users.defaultUserShell = pkgs.nushell;
-  environment.shells = with pkgs; [ nushell ];
+  users.defaultUserShell = pkgs-unstable.nushell;
+  environment.shells = with pkgs-unstable; [ nushell ];
 
   programs.nix-ld.enable = true;
 
