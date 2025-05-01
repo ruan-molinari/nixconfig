@@ -21,7 +21,9 @@
     sysbench
 
     # system tools
-    wl-clipboard-rs # clipboard
+    #wl-clipboard-rs # clipboard
+    wl-clipboard # clipboard
+    xclip
     psmisc # killall/pstree/prtstat/fuser/...
     lm_sensors # for `sensors` command
     ethtool
