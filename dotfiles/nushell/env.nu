@@ -2,7 +2,7 @@
 #  use ~/.secrets/env.nu
 #}
 
-source ./scripts/util.nu
+source '~/nixconfig/dotfiles/nushell/scripts/util.nu'
 
 $env.STARSHIP_SHELL = "nu"
 
