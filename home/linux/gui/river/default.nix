@@ -27,6 +27,7 @@
           "waybar"
           "kanshi"
           "swww-daemon"
+          "wl-paste -t text -w xclip -selection clipboard" # fix clipboard on wine on wayland
         ];
         # Uses xkb config
         keyboard-layout = "-options 'compose:ralt' 'us(dvorak)'";
