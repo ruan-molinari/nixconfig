@@ -27,7 +27,6 @@
           "waybar"
           "kanshi"
           "swww-daemon"
-          "wl-paste -t text -w xclip -selection clipboard" # fix clipboard on wine on wayland
         ];
         # Uses xkb config
         keyboard-layout = "-options 'compose:ralt' 'us(dvorak)'";
@@ -70,10 +69,10 @@
         #map.normal."Super+Alt L" = "move right 100";
 
         # Alt+Shift+{H,J,K,L} to snap views to screen edges
-        map.normal."Super+Shift H" = "snap left";
-        map.normal."Super+Shift J" = "snap down";
-        map.normal."Super+Shift K" = "snap up";
-        map.normal."Super+Shift L" = "snap right";
+        map.normal."Control+Alt H" = "swap left";
+        map.normal."Control+Alt J" = "swap down";
+        map.normal."Control+Alt K" = "swap up";
+        map.normal."Control+Alt L" = "swap right";
 
         # Super+Alt+Shift+{H,J,K,L} to resize views
         map.normal."Super+Alt+Shift H" = "resize horizontal -100";
@@ -138,6 +137,9 @@
           --log-threshold info &
 
         swww img --resize=fit ~/wallpapers/wallpaper-mountain.jpg &
+
+        # This fixes pasting text to wine containers
+        riverctl spawn "wl-paste -t text -w xclip -selection clipboard" &
 
         # eww daemon &
         # eww open bar &
