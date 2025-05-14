@@ -6,5 +6,6 @@
     bottles
     protontricks
     protonup-qt
+    lutris-free
   ];
 }
